@@ -16,9 +16,9 @@ public class SignUpPage {
 		this.driver = thedriver;
 	}
 
-	By firstName = By.xpath("//*[@id=\"AccountFrm_firstname\"]");
-	By LastName = By.xpath("//*[@id=\"AccountFrm_lastname\"]");
-	By Email = By.xpath("//*[@id=\"AccountFrm_email\"]");
+	By firstname = By.xpath("//*[@id=\"AccountFrm_firstname\"]");
+	By lastname = By.xpath("//*[@id=\"AccountFrm_lastname\"]");
+	By email = By.xpath("//*[@id=\"AccountFrm_email\"]");
 	By Telepone = By.xpath("//*[@id=\"AccountFrm_telephone\"]");
 	By Fax = By.xpath("//input[@id='AccountFrm_fax']");
 	By Company = By.xpath("//input[@id='AccountFrm_company']");
@@ -34,12 +34,12 @@ public class SignUpPage {
 	By Country = By.id("AccountFrm_country_id");
 	By State = By.id("AccountFrm_zone_id");
 
-	public void fillForm(String f, String l, String mail, String phone, String user, String pass, String firstname)
+	public void fillForm(String f, String l, String mail, String phone, String user, String pass)
 			throws InterruptedException {
 
-		driver.findElement(firstName).sendKeys(l);
-		driver.findElement(LastName).sendKeys(l);
-		driver.findElement(Email).sendKeys(mail);
+		driver.findElement(firstname).sendKeys(f);
+		driver.findElement(lastname).sendKeys(l);
+		driver.findElement(email).sendKeys(mail);
 		driver.findElement(Telepone).sendKeys(phone);
 		driver.findElement(Fax).sendKeys("962507799882");
 		driver.findElement(Company).sendKeys("DFS");
@@ -48,13 +48,13 @@ public class SignUpPage {
 
 		Select countrySelect = new Select(driver.findElement(Country));
 		int countryCount = driver.findElement(Country).findElements(By.tagName("option")).size();
-		countrySelect.selectByIndex(rand.nextInt(countryCount));
+		countrySelect.selectByIndex(rand.nextInt(1,countryCount));
 
 		Thread.sleep(1000);
 
 		Select stateSelect = new Select(driver.findElement(State));
 		int stateCount = driver.findElement(State).findElements(By.tagName("option")).size();
-		stateSelect.selectByIndex(rand.nextInt(stateCount));
+		stateSelect.selectByIndex(rand.nextInt(1,stateCount));
 
 		driver.findElement(PostalCode).sendKeys("4455");
 		driver.findElement(loginName).sendKeys(user);

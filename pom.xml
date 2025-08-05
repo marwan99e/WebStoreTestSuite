@@ -19,10 +19,15 @@
     <artifactId>selenium-java</artifactId>
     <version>4.33.0</version>
 </dependency>
-  
-  
-  
-  
+
+
+
+
+  	<dependency>
+  		<groupId>WebStoreTest</groupId>
+  		<artifactId>WebStoreTest</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   
   
